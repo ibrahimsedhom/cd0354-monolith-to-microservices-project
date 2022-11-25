@@ -19,5 +19,5 @@ script:
   - sudo docker tag udagram-frontend ibrahimsedhom/udagram-api-feed:v1
 
 after_success:
-  - echo docker login --username "ibrahimsedhom"  --password "1234_2023"
+  - sudo docker login --username "ibrahimsedhom"  --password "1234_2023"
   - sudo docker push ibrahimsedhom/udagram-api-feed:v1
