@@ -16,20 +16,20 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t udagram-api-feed ./udagram-api-feed
-  - docker tag udagram-frontend ibrahimsedhom/udagram-api-feed:latest
+  - docker tag udagram-frontend ibrahimsedhom/udagram-api-feed:v1
 
   - docker build -t udagram-api-user ./udagram-api-user
-  - docker tag udagram-frontend ibrahimsedhom/udagram-api-user:latest
+  - docker tag udagram-frontend ibrahimsedhom/udagram-api-user:v1
 
   - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend ibrahimsedhom/udagram-frontend:latest
+  - docker tag udagram-frontend ibrahimsedhom/udagram-frontend:v1
 
   - docker build -t udagram-reverseproxy ./udagram-reverseproxy
-  - docker tag udagram-frontend ibrahimsedhom/udagram-reverseproxy:latest
+  - docker tag udagram-frontend ibrahimsedhom/udagram-reverseproxy:v1
 
 after_success:
   - echo "1234_2023" | docker login -u "ibrahimsedhom" --password-stdin
-  - docker push ibrahimsedhom/udagram-api-feed:latest
-  - docker push ibrahimsedhom/udagram-api-user:latest
-  - docker push ibrahimsedhom/udagram-frontend:latest
-  - docker push ibrahimsedhom/udagram-reverseproxy:latest
+  - docker push ibrahimsedhom/udagram-api-feed:v1
+  - docker push ibrahimsedhom/udagram-api-user:v1
+  - docker push ibrahimsedhom/udagram-frontend:v1
+  - docker push ibrahimsedhom/udagram-reverseproxy:v1
