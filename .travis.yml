@@ -16,11 +16,19 @@ before_script:
 script:
   - sudo docker --version # print the version for logging
   - sudo docker build -t udagram-api-feed ./udagram-api-feed
-  - sudo docker tag udagram-frontend ibrahimsedhom/udagram-api-feed:v1
+  - sudo docker tag udagram-api-feed  ibrahimsedhom/udagram-api-feed:v2
 
+ - sudo docker build -t udagram-api-user ./udagram-api-user
+  - sudo docker tag udagram-user ibrahimsedhom/udagram-api-user:v2
+
+ - sudo docker build -t udagram-api-frontend ./udagram-api-frontend
+  - sudo docker tag udagram-frontend ibrahimsedhom/udagram-api-frontend:v2
+
+- sudo docker build -t udagram-api-reverseproxy ./udagram-api-reverseproxy
+  - sudo docker tag udagram-reverseproxy ibrahimsedhom/udagram-api-reverseproxy:v2
 after_success:
   -    - sudo docker login --username "ibrahimsedhom"  --password "1234_2023"
-  - docker push ibrahimsedhom/udagram-api-feed:latest
-  - docker push ibrahimsedhom/udagram-api-user:latest
-  - docker push ibrahimsedhom/udagram-frontend:latest
-  - docker push ibrahimsedhom/udagram-reverseproxy:latest
+  - docker push ibrahimsedhom/udagram-api-feed:v2
+  - docker push ibrahimsedhom/udagram-api-user:v2
+  - docker push ibrahimsedhom/udagram-frontend:v2
+  - docker push ibrahimsedhom/udagram-reverseproxy:v2
