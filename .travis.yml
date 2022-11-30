@@ -28,7 +28,7 @@ script:
   - docker tag udagram-frontend ibrahimsedhom/udagram-reverseproxy:latest
 
 after_success:
-  - echo "1234_2023" | docker login -u "ibrahimsedhom" --password-stdin
+  -  docker login -u "ibrahimsedhom" --password-stdin
   - docker push ibrahimsedhom/udagram-api-feed:latest
   - docker push ibrahimsedhom/udagram-api-user:latest
   - docker push ibrahimsedhom/udagram-frontend:latest
